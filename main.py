@@ -4,7 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 from sqlalchemy import Integer, String, Boolean, make_url
 import os
-from dotenv import load_dotenv  # Install: pip install python-dotenv
+# from dotenv import load_dotenv  # Install: pip install python-dotenv
 
 from sqlalchemy.orm.exc import UnmappedInstanceError
 from sqlalchemy.testing.util import random_choices
@@ -28,7 +28,7 @@ app = Flask(__name__)
 class Base(DeclarativeBase):
     pass
 
-load_dotenv()  # Load the .env file
+# load_dotenv()  # Load the .env file
 
 database_url = os.environ.get("DATABASE_URL")
 api_key = os.environ.get("API_KEY")
