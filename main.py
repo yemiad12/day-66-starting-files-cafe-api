@@ -5,7 +5,7 @@ from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 from sqlalchemy import Integer, String, Boolean, make_url
 import os
 # from dotenv import load_dotenv  # Install: pip install python-dotenv
-
+import psycopg2
 from sqlalchemy.orm.exc import UnmappedInstanceError
 from sqlalchemy.testing.util import random_choices
 
@@ -30,7 +30,10 @@ class Base(DeclarativeBase):
 
 # load_dotenv()  # Load the .env file
 
-database_url = os.environ.get("DATABASE_URL")
+# database_url = os.environ.get("DATABASE_URL")
+
+database_url = psycopg2.connect(os.environ['DATABASE_URL'], sslmode='require')
+
 api_key = os.environ.get("API_KEY")
 
 # Connect to Database
