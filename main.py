@@ -127,7 +127,7 @@ def get_all():
         random_cafe = random_choices(all_cafes)
         print(all_cafes)
         for cafe in all_cafes:
-            cafe_row = {"name": cafe.name, "location": cafe.location}
+            cafe_row = {"id": cafe.id, "name": cafe.name, "location": cafe.location}
             if cafe_row:
                 all_items.append(cafe_row)
 
@@ -248,7 +248,6 @@ def delete(cafe_id):
             return jsonify(success=success_message)
     except (AttributeError, UnmappedInstanceError):
         return jsonify(error=attribute_error)
-
 
 
 
